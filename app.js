@@ -37,7 +37,17 @@ const getWeatherDate = async () => {
     <p>${weather[0].description}</p>
   `;
     resultArea.appendChild(cityCart);
+    warning.innerText = "";
+    form.reset();
+    form.focus();
   } catch (error) {
-    warning.innerHTML = `${input} is not a city ${error.massage}`;
+    warning.innerHTML = `${input} is not a city `;
+    form.reset();
+  }
+};
+
+resultArea.onclick = (e) => {
+  if (e.target.className === "closeIcon") {
+    e.target.closest(".city").remove();
   }
 };
